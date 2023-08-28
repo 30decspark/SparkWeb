@@ -7,20 +7,12 @@ using System.Threading.Tasks;
 namespace SparkWeb.Jwt
 {
     public class Jwt
-    { 
-        public string Create(object model)
+    {
+        private static JwtConfig _config;
+        public static void Config(Action<JwtConfig> configure)
         {
-            return "";
-        }
-
-        public bool IsValid(string token)
-        {
-            return false;
-        }
-
-        public object Payload(string token)
-        {
-            return null;
+            _config = new JwtConfig();
+            configure(_config);
         }
     }
 }

@@ -8,35 +8,8 @@ namespace SparkWeb.Jwt
 {
     public class JwtConfig
     {
-        private static string? _key;
-        private static JwtAlgo? _algo;
-        private static TimeSpan? _expire;
-
-        public static string Key
-        {
-            get => _key ?? "your-256-bit-secret";
-            set
-            {
-                if (_key == null) _key = value;
-            }
-        }
-
-        public static JwtAlgo Algo
-        {
-            get => _algo ?? JwtAlgo.HS256;
-            set
-            {
-                if (_algo == null) _algo = value;
-            }
-        }
-
-        public static TimeSpan Expire
-        {
-            get => _expire ?? TimeSpan.FromDays(1);
-            set
-            {
-                if (_expire == null) _expire = value;
-            }
-        }
+        public string Key { get; set; } = "your-256-bit-secret";
+        public JwtAlgo Algo { get; set; } = JwtAlgo.HS256;
+        public TimeSpan Expire { get; set; } = TimeSpan.FromDays(1);
     }
 }
